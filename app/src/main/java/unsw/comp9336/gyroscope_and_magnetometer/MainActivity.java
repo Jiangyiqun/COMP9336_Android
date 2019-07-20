@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new Task1Fragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_task1);
+                    new AboutFragment()).commit();
+//            navigationView.setCheckedItem(R.id.nav_task1);
         }
     }
 

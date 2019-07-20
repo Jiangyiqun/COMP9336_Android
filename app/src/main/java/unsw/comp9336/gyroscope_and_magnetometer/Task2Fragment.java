@@ -30,7 +30,7 @@ public class Task2Fragment extends Fragment {
     private static final float NS2S = 1.0f / 1000000000.0f;
     private float radian = 0;
     private float timestamp;
-    private String format = "%.6f";
+    private String format = "%.2f";
 
     @Override
     public void onPause() {
