@@ -1,0 +1,25 @@
+<resources>
+    <!--Author-->
+    <string name="author_name">Jack Jiang</string>
+    <string name="author_email">jackjyq@outlook.com</string>
+    <string name="author_website">https://github.com/jiangyiqun</string>
+
+    <!--App-->
+    <string name="app_name">Gyroscope Magnetometer</string>
+
+    <!--Navigation-->
+    <string name="nav_header_title">COMP9336 Lab 8</string>
+    <string name="nav_header_subtitle">Gyroscope and Magnetometer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_task1">Gyroscope 1</string>
+    <string name="menu_task2">Gyroscope 2 </string>
+    <string name="menu_task3">Magnetometer 1</string>
+    <string name="menu_task4">Magnetometer 2</string>
+    <string name="menu_task5">Magnetometer 3</string>
+    <string name="action_about">About</string>
+
+
+
+</resources>
