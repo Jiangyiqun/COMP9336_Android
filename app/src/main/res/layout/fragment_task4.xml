@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".Task4Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello Task4" />
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="300dp"
+        android:textSize="100dp"
+        android:text="0" />
 
 </FrameLayout>

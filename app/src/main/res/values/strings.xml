@@ -18,8 +18,9 @@
     <string name="menu_task3">Magnetometer 1</string>
     <string name="menu_task4">Magnetometer 2</string>
     <string name="menu_task5">Magnetometer 3</string>
-    <string name="action_about">About</string>
+    <string name="menu_about">About</string>
 
-
+    <!--Task2-->
+    <string name="btn_reset">Reset</string>
 
 </resources>
