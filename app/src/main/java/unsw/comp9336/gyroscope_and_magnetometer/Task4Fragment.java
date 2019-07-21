@@ -58,9 +58,9 @@ public class Task4Fragment extends Fragment {
                 double y = (double)values[1];
                 double heading;
                 if (x > 0) {
-                    heading = 270 + Math.toDegrees(Math.atan(Math.sin(y / x)));
+                    heading = 270 + Math.toDegrees(Math.atan(y / x));
                 } else if (x < 0) {
-                    heading = 90 + Math.toDegrees(Math.atan(Math.sin(y / x)));
+                    heading = 90 + Math.toDegrees(Math.atan(y / x));
                 } else {
                     if (y > 0) {
                         heading = 0;

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.GeomagneticField;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -42,9 +43,15 @@ public class Task5Fragment extends Fragment {
     private TextView textViewX;
     private TextView textViewY;
     private TextView textViewZ;
+    private TextView textViewMX;
+    private TextView textViewMY;
+    private TextView textViewMZ;
+    private TextView textViewDeclination;
+    private TextView textViewArc;
     private TextView textViewMagnetHeading;
     private TextView textViewTrueHeading;
     private String format = "%.2f";
+    private double magnetHeading = -1;
     // for GPS
     private static final int TWO_MINUTES = 1000 * 60 * 2;
     private LocationManager locationManager;
@@ -76,6 +83,11 @@ public class Task5Fragment extends Fragment {
         textViewX = (TextView) view.findViewById(R.id.x);
         textViewY = (TextView) view.findViewById(R.id.y);
         textViewZ = (TextView) view.findViewById(R.id.z);
+        textViewMX = (TextView) view.findViewById(R.id.mx);
+        textViewMY = (TextView) view.findViewById(R.id.my);
+        textViewMZ = (TextView) view.findViewById(R.id.mz);
+        textViewDeclination = (TextView) view.findViewById(R.id.declination);
+        textViewArc = (TextView) view.findViewById(R.id.arc);
         textViewMagnetHeading = (TextView) view.findViewById(R.id.mHeading);
         textViewTrueHeading = (TextView) view.findViewById(R.id.tHeading);
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -90,11 +102,16 @@ public class Task5Fragment extends Fragment {
                 float[] values = sensorEvent.values;
                 double x = (double) values[0];
                 double y = (double) values[1];
-                double magnetHeading;
+                double z = (double) values[2];
+                double arc = Math.toDegrees(Math.atan(y / x));
+                textViewMX.setText(String.format(format, x));
+                textViewMY.setText(String.format(format, y));
+                textViewMZ.setText(String.format(format, z));
+                textViewArc.setText(String.format(format, arc));
                 if (x > 0) {
-                    magnetHeading = 270 + Math.toDegrees(Math.atan(Math.sin(y / x)));
+                    magnetHeading = 270 + arc;
                 } else if (x < 0) {
-                    magnetHeading = 90 + Math.toDegrees(Math.atan(Math.sin(y / x)));
+                    magnetHeading = 90 + arc;
                 } else {
                     if (y > 0) {
                         magnetHeading = 0;
@@ -104,9 +121,8 @@ public class Task5Fragment extends Fragment {
                 }
                 textViewMagnetHeading.setText(String.format(format, magnetHeading));
                 if (currentBestLocation != null) {
-
+                    updateTrueHeading();
                 }
-
             }
 
             @Override
@@ -124,6 +140,19 @@ public class Task5Fragment extends Fragment {
     }
 
 
+    private void updateTrueHeading() {
+        GeomagneticField geomagneticField = new GeomagneticField(
+                Double.valueOf(currentBestLocation.getLatitude()).floatValue(),
+                Double.valueOf(currentBestLocation.getLongitude()).floatValue(),
+                Double.valueOf(currentBestLocation.getAltitude()).floatValue(),
+                System.currentTimeMillis()
+        );
+        double declination = (double) geomagneticField.getDeclination();
+        textViewDeclination.setText(String.format(format, declination));
+        double trueHeading = magnetHeading - declination;
+        textViewTrueHeading.setText(String.format(format, trueHeading));
+
+    }
 
     private void defineLocationListener() {
         // Define a listener that responds to location updates
@@ -135,6 +164,9 @@ public class Task5Fragment extends Fragment {
                     textViewX.setText(String.valueOf(currentBestLocation.getLatitude()));
                     textViewY.setText(String.valueOf(currentBestLocation.getLongitude()));
                     textViewZ.setText(String.valueOf(currentBestLocation.getAltitude()));
+//                    if (magnetHeading >= 0) {
+//                        updateTrueHeading();
+//                    }
                 }
             }
 
