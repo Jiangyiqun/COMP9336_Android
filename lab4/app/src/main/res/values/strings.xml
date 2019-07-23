@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="btn_enable_wifi">Enable Wifi</string>
+    <string name="btn_check_direct">Check Wifi-Direct</string>
+    <string name="btn_discover_peer">Discover Peers</string>
+</resources>

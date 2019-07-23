@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Jack\'s Wifi Information</string>
+    <string name="availabilityTitle">5G Availability</string>
+    <string name="NotAvailable">5G is not Support</string>
+    <string name="IsAvailable">5G is supported</string>
+    <string name="frequenceTitle">Wifi Frequence</string>
+    <string name="bitRateTitle">Wifi Bit Rate</string>
+    <string name="protocolTitle">Wifi Protocal</string>
+    <string name="modulationTitle">Wifi Modulation</string>
+    <string name="refresh">Refresh</string>
+    <string name="toast_enable_wifi">"Enabling WiFi. You may want to refresh after WiFi being connected!"</string>
+    <string name="toast_wifi_refreshed">"WiFi information has been refreshed"</string>
+</resources>

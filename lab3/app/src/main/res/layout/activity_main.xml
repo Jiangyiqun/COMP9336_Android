@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">
+    <TableRow>
+        <TextView
+            android:text="@string/availabilityTitle"
+            android:padding="3dip" />
+        <TextView
+            android:id="@+id/availabilityContent"
+            android:gravity="right"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="@string/frequenceTitle"
+            android:padding="3dip" />
+        <TextView
+            android:id="@+id/frequenceContent"
+            android:gravity="right"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="@string/bitRateTitle"
+            android:padding="3dip" />
+        <TextView
+            android:id="@+id/bitRateContent"
+            android:gravity="right"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="@string/protocolTitle"
+            android:padding="3dip" />
+        <TextView
+            android:id="@+id/protocolContent"
+            android:gravity="right"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="@string/modulationTitle"
+            android:padding="3dip" />
+        <TextView
+            android:id="@+id/modulationContent"
+            android:gravity="right"
+            android:padding="3dip" />
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HelloWifi</string>
+    <string name="scan_bun">Scan for Wifi</string>
+</resources>
